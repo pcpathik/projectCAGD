@@ -70,3 +70,7 @@ required_data_mean <- dcast(required_data_melted, volunteer_id + label ~ variabl
 
 
 
+write.csv(x = required_data, file = "tidy_data.csv")
+write.csv(x = required_data_mean, file = "mean.csv")
+write.table(x= required_data, row.names = F, file = "tidy_data.txt")
+
