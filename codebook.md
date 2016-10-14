@@ -11,6 +11,7 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
+
 ### Attribute Information
 For each record in the dataset it is provided: 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
@@ -117,3 +118,25 @@ For each record in the dataset it is provided:
 * `SITTING` (value `4`): subject was sitting during the test
 * `STANDING` (value `5`): subject was standing during the test
 * `LAYING` (value `6`): subject was laying down during the test
+
+
+
+
+
+##The R script
+The R script, `run_analysis.R`, does the following:
+
+1. Download the dataset if it does not already exist in the working directory
+2. Load the feature info
+3. Loads both the training and test datasets, keeping only those columns which
+   reflect a mean or standard deviation
+4. Loads the activity and subject data for each dataset, and merges those
+   columns with the dataset
+5. Merges the two datasets
+6. Load the activity info
+7. maps the activity to the tidy dataset
+8. Creates a dataset that consists of the average (mean) value of each
+   variable for each subject and activity pair.
+
+The result after step 7 is shown in the file `tidy.csv`.
+The result after step 8 is shown in the file `mean.csv`.
